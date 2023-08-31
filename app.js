@@ -5,12 +5,12 @@ const app = express();
 
 const { auth } = require("./middleware/auth");
 
-app.use(auth);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-
+app.use('/edit-departments',express.static('public'))
+app.use(auth);
 const task = require("./routes/task");
 const taskproof = require('./routes/task-proof')
 const about_courses = require("./routes/about-courses");
@@ -18,7 +18,7 @@ const about_student = require("./routes/about-student");
 const add_courses = require("./routes/add-courses");
 const add_departments = require("./routes/add-departments");
 const add_fees = require("./routes/add-fees");
-const add_holiday = require("./routes/add-holiday");
+const add_task = require("./routes/add-task");
 const add_library = require("./routes/add-library");
 const add_professor = require("./routes/add-professor");
 const add_staff = require("./routes/add-staff");
@@ -108,7 +108,7 @@ app.use("/about-student", about_student);
 app.use("/add-courses", add_courses);
 app.use("/add-departments", add_departments);
 app.use("/add-fees", add_fees);
-app.use("/add-holiday", add_holiday);
+app.use("/add-task", add_task);
 app.use("/add-library", add_library);
 app.use("/add-professor", add_professor);
 app.use("/add-staff", add_staff);
@@ -197,4 +197,8 @@ app.use('/taskproof',taskproof)
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
 });
+
+
+
+
 module.exports = app;
