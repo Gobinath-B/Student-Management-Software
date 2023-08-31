@@ -192,5 +192,7 @@ app.use("/ui-progressbar", ui_progressbar);
 app.use("/ui-tab", ui_tab);
 app.use("/ui-typography", ui_typography);
 app.use("/widget-basic", widget_basic);
-
+app.get("/page-logout", (req, res) => {
+     res.redirect("/page-login");
+});
 module.exports = app;
