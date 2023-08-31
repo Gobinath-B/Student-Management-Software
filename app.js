@@ -5,12 +5,12 @@ const app = express();
 
 const { auth } = require("./middleware/auth");
 
-app.use(auth);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use('/edit-departments',express.static('public'))
+app.use(auth);
 const task = require("./routes/task");
 const about_courses = require("./routes/about-courses");
 const about_student = require("./routes/about-student");
