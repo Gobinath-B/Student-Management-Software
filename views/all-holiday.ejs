@@ -174,7 +174,8 @@
                                                                  <td><%= taskd.task.hack.pillar %></td>
                                                                  <td><%= data.task.startDate %></td>
                                                                  <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.exercism?"Finished":"Pending"%></td>
+                                                                 <td ><%= data.task.exercism?"Finished":"Pending"%></td>
+                                                                 <td ><%= data.task.exercism?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
@@ -394,6 +395,56 @@
                                                             </tr> -->
                                                        </tbody>
                                                   </table>
+                                                  <div class="row " style="margin: 20px; ">
+                                                       <div class="col-md-12">
+                                                            <div class="card">
+                                                              <div class="card-header">
+                                                                Upload Proof
+                                                              </div>
+                                                              <div class="card-body">
+                                                                <form action="/taskproof" method="post" enctype="multipart/form-data">
+                                                                 <label for="taskproof" class="form-check-label">Choose the type of proof</label>
+                                                                 <input list="taskproof" name="taskproof" class="btn btn-primary" style="margin-bottom: 10px;">
+                                                                 <datalist id="taskproof" >
+                                                                   <option value="Article">
+                                                                   <option value="Bmc">
+                                                                   <option value="Exercism">
+                                                                   <option value="Online Hackathon">
+                                                                   <option value="Mooc Course">
+                                                                   <option value="Dt bootcamp">
+                                                                   <option value="Tie Event">
+                                                                 </datalist>
+                                                                  <input type="file" name="image" class="form-control">
+                                                                  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Extra-curricular Certificate</button>
+                                                                </form>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                  <div class="row " style="margin: 20px; ">
+                                                       <div class="col-md-12">
+                                                            <div class="card">
+                                                              <div class="card-header">
+                                                                Upload Proof
+                                                              </div>
+                                                              <div class="card-body">
+                                                                <form action="/taskproof" method="post" enctype="multipart/form-data">
+                                                                 <label for="taskproof" class="form-check-label">Choose the type of proof</label>
+                                                                 <input list="taskproof" name="taskproof" class="btn btn-primary" style="margin-bottom: 10px;">
+                                                                 <datalist id="taskproof" >
+                                                                   <option value="Article">
+                                                                   <option value="Bmc">
+                                                                   <option value="Exercism">
+                                                                   <option value="Online Hackathon">
+                                                                   <option value="Mooc Course">
+                                                                   <option value="Dt bootcamp">
+                                                                   <option value="Tie Event">
+                                                                 </datalist>
+                                                                  <input type="file" name="image" class="form-control">
+                                                                  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Extra-curricular Certificate</button>
+                                                                </form>
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                              </div>
                                         </div>
                                    </div>
@@ -401,6 +452,8 @@
                          </div>
                     </div>
                </div>
+               
+               
                <!--**********************************
             Content body end
         ***********************************-->
@@ -433,7 +486,8 @@
           <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
           <script src="js/custom.min.js"></script>
           <script src="js/dlabnav-init.js"></script>
-
+          <script> document.getElementById("career").value = "Select Here";</script>
+          <script> document.getElementById("career").value = "Select Here";</script>
           <!-- Datatable -->
           <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
           <script src="js/plugins-init/datatables.init.js"></script>

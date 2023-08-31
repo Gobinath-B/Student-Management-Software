@@ -71,8 +71,8 @@
                          <li><a href="all-courses">Acadamic Courses</a></li>
                         <% if(isStaff){%>
                          <li><a href="add-courses">Add Courses</a></li>
-                         <li><a href="edit-courses">Edit Courses</a></li>
-                         <li><a href="about-courses">About Courses</a></li>
+                         <!-- <li><a href="edit-courses">Edit Courses</a></li> -->
+                         <!-- <li><a href="about-courses">About Courses</a></li> -->
                         <%}%>
                     </ul>
                </li>
@@ -88,7 +88,7 @@
                          <li><a href="all-library">All Materials</a></li>
                         <%if(isStaff){%>
                          <li><a href="add-library">Add Materials</a></li>
-                         <li><a href="edit-library">Edit Materials</a></li>
+                         <!-- <li><a href="edit-library">Edit Materials</a></li> -->
                         <%}%>
                     </ul>
                </li>
@@ -134,9 +134,9 @@
                          <span class="nav-text">Monthly Task</span>
                     </a>
                     <ul aria-expanded="false">
-                         <li><a href="all-holiday">My Tasks</a></li>
+                         <li><a href="all-holiday"> <%if(isStaff){%> All Tasks  <%}else{%> My Tasks <%}%></a></li>
                          <%if(isStaff){%>
-                              <li><a href="add-holiday">Add Task</a></li>
+                              <li><a href="add-task">Add Task</a></li>
                               <li><a href="edit-holiday">Edit Task</a></li> 
                               <%}else{%>
                                    <li><a href="all-holiday">Upload Cetificate</a></li>

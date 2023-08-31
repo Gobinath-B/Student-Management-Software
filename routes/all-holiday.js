@@ -20,4 +20,5 @@ router.get('/',async(req,res)=>{
    res.render("all-holiday",{data:data,taskd:taskd});
     
 })
+
 module.exports = router
