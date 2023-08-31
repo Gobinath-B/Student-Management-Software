@@ -9,7 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.use('/edit-departments',express.static('public'))
+app.use('/edit-departments', express.static('public'))
+app.use('/edit-courses', express.static('public'))
 app.use(auth);
 const task = require("./routes/task");
 const taskproof = require('./routes/task-proof')
@@ -194,11 +195,9 @@ app.use("/ui-tab", ui_tab);
 app.use("/ui-typography", ui_typography);
 app.use("/widget-basic", widget_basic);
 app.use('/taskproof',taskproof)
+
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
 });
-
-
-
 
 module.exports = app;
