@@ -9,8 +9,8 @@ const db = fb.firestore();
 
 router.get('/',async(req,res)=>{
     const reqdata = req.body;
-    const id = 'Swq0AKtoqJTUpwmNPCnV'; //req.header.id;
-    
+    var cookies = cookie.parse(req?.headers?.cookie || "");
+    const id = cookie.student_id;
    const taskData = await db.collection("task").doc(id).get(); 
    const docData = await db.collection("students").doc(id).get();
    var data = docData.data();
