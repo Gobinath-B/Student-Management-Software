@@ -183,5 +183,7 @@ app.use('/ui-popover',ui_popover)
 app.use('/ui-progressbar',ui_progressbar)
 app.use('/ui-tab',ui_tab)
 app.use('/ui-typography',ui_typography)
-app.use('/widget-basic',widget_basic)
+app.use('/widget-basic', widget_basic)
+
+
 module.exports = app 
