@@ -5,16 +5,18 @@
                class="metismenu"
                id="menu">
                <li class="nav-label first">Main Menu</li>
-               <li>
-                    <a 
-                        
-                         href="/"
-                         aria-expanded="false">
-                         <i class="la la-home"></i>
-                         <span class="nav-text">Student</span>
-                    </a>
-                    
-               </li>
+               <% if(!isStaff){%>
+                    <li>
+                         <a 
+                              href="/"
+                              aria-expanded="false">
+                              <i class="la la-home"></i>
+                              <span class="nav-text">Student</span>
+                         </a>
+                         
+                    </li>
+               <%} %>
+               
                <li>
                     <a
                          class="ai-icon"
@@ -39,21 +41,24 @@
                          <li><a href="professor-profile">Professor Profile</a></li>
                     </ul>
                </li> -->
-               <li>
-                    <a
-                         class="has-arrow"
-                         href="javascript:void()"
-                         aria-expanded="false">
-                         <i class="la la-users"></i>
-                         <span class="nav-text">Students</span>
-                    </a>
-                    <ul aria-expanded="false">
-                         <li><a href="all-students">All Students</a></li>
-                         <li><a href="add-student">Add Students</a></li>
-                         <li><a href="edit-student">Edit Students</a></li>
-                         <li><a href="about-student">About Students</a></li>
-                    </ul>
-               </li>
+               <%if(isStaff){%>
+                    <li>
+                         <a
+                              class="has-arrow"
+                              href="javascript:void()"
+                              aria-expanded="false">
+                              <i class="la la-users"></i>
+                              <span class="nav-text">Students</span>
+                         </a>
+                         <ul aria-expanded="false">
+                              <li><a href="all-students">All Students</a></li>
+                              <li><a href="add-student">Add Students</a></li>
+                              <li><a href="edit-student">Edit Students</a></li>
+                              <li><a href="about-student">About Students</a></li>
+                         </ul>
+                    </li>
+               <%}%>
+               
                <li>
                     <a
                          class="has-arrow"
@@ -64,9 +69,11 @@
                     </a>
                     <ul aria-expanded="false">
                          <li><a href="all-courses">Acadamic Courses</a></li>
-                         <!-- <li><a href="add-courses">Add Courses</a></li>
+                        <% if(isStaff){%>
+                         <li><a href="add-courses">Add Courses</a></li>
                          <li><a href="edit-courses">Edit Courses</a></li>
-                         <li><a href="about-courses">About Courses</a></li> -->
+                         <li><a href="about-courses">About Courses</a></li>
+                        <%}%>
                     </ul>
                </li>
                <li>
@@ -79,8 +86,10 @@
                     </a>
                     <ul aria-expanded="false">
                          <li><a href="all-library">All Materials</a></li>
+                        <%if(isStaff){%>
                          <li><a href="add-library">Add Materials</a></li>
                          <li><a href="edit-library">Edit Materials</a></li>
+                        <%}%>
                     </ul>
                </li>
                <li>
@@ -93,8 +102,10 @@
                     </a>
                     <ul aria-expanded="false">
                          <li><a href="all-departments">Departments</a></li>
-                         <!-- <li><a href="add-departments">Add Departments</a></li>
-                         <li><a href="edit-departments">Edit Departments</a></li> -->
+                         <%if(isStaff){%>
+                              <li><a href="add-departments">Add Departments</a></li>
+                              <li><a href="edit-departments">Edit Departments</a></li>
+                         <%}%>
                     </ul>
                </li>
                <li>
@@ -107,9 +118,11 @@
                     </a>
                     <ul aria-expanded="false">
                          <li><a href="all-staff">Staff</a></li>
-                         <!-- <li><a href="add-staff">Add Staff</a></li>
-                         <li><a href="edit-staff">Edit Staff</a></li>
-                         <li><a href="staff-profile">Staff Profile</a></li> -->
+                         <%if(isStaff){%>
+                              <li><a href="add-staff">Add Staff</a></li>
+                              <li><a href="edit-staff">Edit Staff</a></li>
+                              <li><a href="staff-profile">Staff Profile</a></li>
+                         <%}%>
                     </ul>
                </li>
                <li>
@@ -122,9 +135,13 @@
                     </a>
                     <ul aria-expanded="false">
                          <li><a href="all-holiday">My Tasks</a></li>
-                         <!-- <li><a href="add-holiday">Add Task</a></li>
-                         <li><a href="edit-holiday">Edit Task</a></li> -->
-                         <!-- <li><a href="holiday-calendar"> Task</a></li> -->
+                         <%if(isStaff){%>
+                              <li><a href="add-holiday">Add Task</a></li>
+                              <li><a href="edit-holiday">Edit Task</a></li> 
+                              <%}else{%>
+                                   <li><a href="all-holiday">Upload Cetificate</a></li>
+                              <%}%>
+                         <!-- <li><a href="holiday-calendar"> Task</a></li>-->
                     </ul>
                </li>
                <li>

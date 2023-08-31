@@ -179,7 +179,9 @@
                                         <span class="ml-2">Inbox </span>
                                    </a>
                                    <a
-                                        href="page-login"
+                                        id="logout-btn"
+                                        onclick=""
+                                        href="page-logout"
                                         class="dropdown-item ai-icon">
                                         <svg
                                              id="icon-logout"
@@ -210,3 +212,28 @@
           </nav>
      </div>
 </div>
+<script>
+     // function setCookie(name, value, days) {
+     //      var d = new Date();
+     //      d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+     //      document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+     // }
+     // function getCookie(name) {
+     //      var v = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+     //      return v ? v[2] : null;
+     // }
+     // function deleteCookie(name) {
+     //      setCookie(name, "", -1);
+     // }
+
+     // const logout = document.getElementById("logout-btn");
+     // logout.addEventListener("click", (e) => {
+     //      const studentToken = getCookie("student_id");
+     //      const teacherToken = getCookie("teacher_id");
+     //      if (studentToken) {
+     //           deleteCookie("student_id");
+     //      } else if (teacherToken) {
+     //           deleteCookie("teacher_id");
+     //      }
+     // });
+</script>
