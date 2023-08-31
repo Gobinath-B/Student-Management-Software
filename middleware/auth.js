@@ -24,7 +24,22 @@ exports.login = async (req, res, next) =>{
                 res.redirect('/')
             }
         }else{
-
+            const response = await db.collection('staffs')
+            .where('email',"==",user_name)
+            .where('reg_id',"==",password)
+            .get()
+            const result = []
+            await response.docs.forEach(std=>{
+                result.push({id:std.id,...std.data()})
+            })
+            console.log(result);
+            if(result.length==0){
+                res.send('Staff Not found')
+                return;
+            }else{
+                res.setHeader('Set-Cookie',cookie.serialize('staff_id',String(result[0].id)))
+                res.redirect('/')
+            }
         }
         
     }catch(err){
@@ -36,7 +51,7 @@ exports.auth = (req, res, next) =>{
     if(req.url=="/login"){next()}
     try {
         var cookies = cookie.parse(req?.headers?.cookie || '');
-        if(cookies?.student_id){
+        if(cookies?.student_id || cookies?.staff_id){
             next()
         }else{
         }
