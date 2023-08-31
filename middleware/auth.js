@@ -48,7 +48,10 @@ exports.login = async (req, res, next) =>{
 }
 
 exports.auth = (req, res, next) =>{
-    if(req.url=="/login"){next()}
+    if(req.url=="/login"){
+        next()
+        return
+    }
     try {
         var cookies = cookie.parse(req?.headers?.cookie || '');
         if(cookies?.student_id || cookies?.staff_id){
@@ -57,6 +60,6 @@ exports.auth = (req, res, next) =>{
             res.redirect('/login')
         }
     } catch (error) {
-        res.redirect('/login')
+        res.json(error)
     }
 }
