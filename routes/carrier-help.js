@@ -1,37 +1,51 @@
 const express = require('express');
+const axios = require('axios');
+const router = express.Router()
 const app = express();
-const openai = require('openai');
 
-// Set your OpenAI API key here
-openai.api_key = 'your-api-key';
-
-// Middleware to parse JSON request bodies
+// Middleware to parse incoming form data
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+
 // API endpoint for career guidance
-app.post('/career-guidance', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const userInput = req.body.input;
-        const careerRecommendation = await getCareerRecommendation(userInput);
-        res.json({ recommendation: careerRecommendation });
-    } catch (error) {
+        const userInput = req.body.career;
+        const strin = "give me a carrer path to become a " + userInput + " . I don't want any other answer adn no other extra word, just give me teh career path. Also give every point in between a <h3></h3> tag, make the sub headings enclosed by a h2 tag like <h2></h2>. make the paragraph more detailed"
+        const careerRecommendation = await generateCareerRecommendation(strin);
+        console.log(careerRecommendation)
+        res.render('edit-library', { careerRecommendation });
+    }
+    catch (error) {
         console.error(error);
         res.status(500).json({ error: 'An error occurred' });
     }
 });
 
-// Function to get career recommendations from OpenAI
-async function getCareerRecommendation(prompt) {
-    const response = await openai.Completion.create({
-        engine: "davinci", // You can use other engines
-        prompt: prompt,
-        max_tokens: 50,    // Adjust as needed
-        stop: null         // You can specify a stop condition if needed
-    });
-    return response.choices[0].text.trim();
+// Function to generate career recommendation using Cohere AI API
+async function generateCareerRecommendation(prompt) {
+    const options = {
+        method: 'POST',
+        url: 'https://api.cohere.ai/v1/generate',
+        headers: {
+            accept: 'application/json',
+            'content-type': 'application/json',
+            authorization: 'Bearer VjzKnm3mbZ4NQ55PVhBFLgpLActkEwiEl6LsYFKq'
+        },
+        data: {
+            max_tokens: 500,  // Adjust as needed
+            truncate: 'END',
+            return_likelihoods: 'NONE',
+            prompt: prompt
+        }
+    };
+
+    const response = await axios.request(options);
+    console.log(response.data.generations[0].text)
+    return response.data.generations[0].text;
 }
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+module.exports = router
+

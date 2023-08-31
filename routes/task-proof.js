@@ -49,7 +49,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     });
     
     await studentDocRef.update({
-        [`task.${proofType}`]: True
+        [`task.${proofType}`]: true
       });  
 
     res.status(200).send(' information stored successfully.');

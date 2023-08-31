@@ -2,102 +2,94 @@
 
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-          <meta charset="utf-8" />
-          <meta
-               http-equiv="X-UA-Compatible"
-               content="IE=edge" />
-          <meta
-               name="viewport"
-               content="width=device-width,initial-scale=1" />
-          <title>SNS Student Managment System</title>
-          <!-- Favicon icon -->
-          <link
-               rel="icon"
-               type="image/png"
-               sizes="16x16"
-               href="images/favicon.png" />
-          <link
-               rel="stylesheet"
-               href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" />
-          <!-- Datatable -->
-          <link
-               href="vendor/datatables/css/jquery.dataTables.min.css"
-               rel="stylesheet" />
-          <link
-               rel="stylesheet"
-               href="css/style.css" />
-     </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SNS Student Managment System</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css"
+    />
+    <!-- Datatable -->
+    <link
+      href="vendor/datatables/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-     <body>
-          <!--*******************
+  <body>
+    <!--*******************
         Preloader start
     ********************-->
-          <div id="preloader">
-               <div class="sk-three-bounce">
-                    <div class="sk-child sk-bounce1"></div>
-                    <div class="sk-child sk-bounce2"></div>
-                    <div class="sk-child sk-bounce3"></div>
-               </div>
-          </div>
-          <!--*******************
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
 
-          <!--**********************************
+    <!--**********************************
         Main wrapper start
     ***********************************-->
-          <div id="main-wrapper">
-               <!--**********************************
+    <div id="main-wrapper">
+      <!--**********************************
             Nav header start
         ***********************************-->
-               <%-include('./partials/__top-bar')%>
-               <!--**********************************
+      <%-include('./partials/__top-bar')%>
+      <!--**********************************
             Nav header end
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
             Header start
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
             Sidebar start
         ***********************************-->
-               <%-include('./partials/__student-side-bar')%>
+      <%-include('./partials/__student-side-bar')%>
 
-               <!--**********************************
+      <!--**********************************
             Sidebar end
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
             Content body start
         ***********************************-->
-               <div class="content-body">
-                    <!-- row -->
-                    <div class="container-fluid">
-                         <div class="row page-titles mx-0">
-                              <div class="col-sm-6 p-md-0">
-                                   <div class="welcome-text">
-                                        <h4>September Month Task</h4>
-                                   </div>
-                              </div>
-                              <!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+      <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+          <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+              <div class="welcome-text">
+                <h4>September Month Task</h4>
+              </div>
+            </div>
+            <!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                                    <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index">Home</a></li>
                                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Holiday</a></li>
                                         <li class="breadcrumb-item active"><a href="javascript:void(0);">All Holiday</a></li>
                                    </ol>
                               </div> -->
-                         </div>
+          </div>
 
-                         <div class="row">
-                              <div class="col-lg-12">
-                                   <div class="card">
-                                        <!-- <div class="card-header">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <!-- <div class="card-header">
                                              <h4 class="card-title">Holiday List</h4>
                                              <a
                                                   href="add-holiday"
@@ -105,135 +97,129 @@
                                                   >+ Add New</a
                                              >
                                         </div> -->
-                                        <div class="card-body">
-                                             <div class="table-responsive">
-                                                  <table
-                                                       id="example5"
-                                                       class="display">
-                                                       <thead>
-                                                            <tr>
-                                                                 <th>#</th>
-                                                                 <th>Task</th>
-                                                                 <th>Pillar</th>
-                                                                 <th>Assigned date</th>
-                                                                 <th>Due Date</th>
-                                                                 <th>Status</th>
-                                                                 <th>Action</th>
-                                                            </tr>
-                                                       </thead>
-                                                       <tbody>
-                                                            <tr>
-                                                                 <td>01</td>
-                                                                 <td><%= taskd.task.article.name %></td>
-                                                                 <td><%= taskd.task.article.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.article?"Finished":"Pending"%></td>
-                                                                 
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>02</td>
-                                                                 <td><%= taskd.task.bmc.name %></td>
-                                                                 <td><%= taskd.task.bmc.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.bmc?"Finished":"Pending"%></td>
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>03</td>
-                                                                 <td><%= taskd.task.exercism.name %></td>
-                                                                 <td><%= taskd.task.exercism.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.exercism?"Finished":"Pending"%></td>
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>04</td>
-                                                                 <td><%= taskd.task.hack.name %></td>
-                                                                 <td><%= taskd.task.hack.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td ><%= data.task.exercism?"Finished":"Pending"%></td>
-                                                                 <td ><%= data.task.exercism?"Finished":"Pending"%></td>
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>05</td>
-                                                                 <td><%= taskd.task.mooc.name %></td>
-                                                                 <td><%= taskd.task.mooc.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.article?"Finished":"Pending"%></td>
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>06</td>
-                                                                 <td><%= taskd.task.dt.name %></td>
-                                                                 <td><%= taskd.task.dt.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.dt?"Finished":"Pending"%></td>
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                 <td>07</td>
-                                                                 <td><%= taskd.task.tieEvent.name %></td>
-                                                                 <td><%= taskd.task.tieEvent.pillar %></td>
-                                                                 <td><%= data.task.startDate %></td>
-                                                                 <td><%= data.task.lastDate %></td>
-                                                                 <td><%= data.task.tieEvent?"Finished":"Pending"%></td>
-                                                                 <td>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-primary"
-                                                                           >Remind Later</a>
-                                                                      
-                                                                 </td>
-                                                            </tr>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="example5" class="display">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Task</th>
+                          <th>Pillar</th>
+                          <th>Assigned date</th>
+                          <th>Due Date</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>01</td>
+                          <td><%= taskd.task.article.name %></td>
+                          <td><%= taskd.task.article.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.article?"Finished":"Pending"%></td>
 
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>02</td>
+                          <td><%= taskd.task.bmc.name %></td>
+                          <td><%= taskd.task.bmc.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.bmc?"Finished":"Pending"%></td>
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>03</td>
+                          <td><%= taskd.task.exercism.name %></td>
+                          <td><%= taskd.task.exercism.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.exercism?"Finished":"Pending"%></td>
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>04</td>
+                          <td><%= taskd.task.hack.name %></td>
+                          <td><%= taskd.task.hack.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.exercism?"Finished":"Pending"%></td>
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>05</td>
+                          <td><%= taskd.task.mooc.name %></td>
+                          <td><%= taskd.task.mooc.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.article?"Finished":"Pending"%></td>
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>06</td>
+                          <td><%= taskd.task.dt.name %></td>
+                          <td><%= taskd.task.dt.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.dt?"Finished":"Pending"%></td>
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>07</td>
+                          <td><%= taskd.task.tieEvent.name %></td>
+                          <td><%= taskd.task.tieEvent.pillar %></td>
+                          <td><%= data.task.startDate %></td>
+                          <td><%= data.task.lastDate %></td>
+                          <td><%= data.task.tieEvent?"Finished":"Pending"%></td>
+                          <td>
+                            <a
+                              href="javascript:void(0);"
+                              class="btn btn-sm btn-primary"
+                              >Remind Later</a
+                            >
+                          </td>
+                        </tr>
 
-
-                                                            
-                                                            <!-- <tr>
+                        <!-- <tr>
                                                                  <td>08</td>
                                                                  <td>Memorial Day</td>
                                                                  <td>National Holiday</td>
@@ -333,7 +319,7 @@
                                                                       ></a>
                                                                  </td>
                                                             </tr> -->
-                                                            <!-- <tr>
+                        <!-- <tr>
                                                                  <td>13</td>
                                                                  <td>Festival</td>
                                                                  <td>National Holiday</td>
@@ -393,108 +379,107 @@
                                                                       ></a>
                                                                  </td>
                                                             </tr> -->
-                                                       </tbody>
-                                                  </table>
-                                                  <div class="row " style="margin: 20px; ">
-                                                       <div class="col-md-12">
-                                                            <div class="card">
-                                                              <div class="card-header">
-                                                                Upload Proof
-                                                              </div>
-                                                              <div class="card-body">
-                                                                <form action="/taskproof" method="post" enctype="multipart/form-data">
-                                                                 <label for="taskproof" class="form-check-label">Choose the type of proof</label>
-                                                                 <input list="taskproof" name="taskproof" class="btn btn-primary" style="margin-bottom: 10px;">
-                                                                 <datalist id="taskproof" >
-                                                                   <option value="Article">
-                                                                   <option value="Bmc">
-                                                                   <option value="Exercism">
-                                                                   <option value="Online Hackathon">
-                                                                   <option value="Mooc Course">
-                                                                   <option value="Dt bootcamp">
-                                                                   <option value="Tie Event">
-                                                                 </datalist>
-                                                                  <input type="file" name="image" class="form-control">
-                                                                  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Extra-curricular Certificate</button>
-                                                                </form>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                  <div class="row " style="margin: 20px; ">
-                                                       <div class="col-md-12">
-                                                            <div class="card">
-                                                              <div class="card-header">
-                                                                Upload Proof
-                                                              </div>
-                                                              <div class="card-body">
-                                                                <form action="/taskproof" method="post" enctype="multipart/form-data">
-                                                                 <label for="taskproof" class="form-check-label">Choose the type of proof</label>
-                                                                 <input list="taskproof" name="taskproof" class="btn btn-primary" style="margin-bottom: 10px;">
-                                                                 <datalist id="taskproof" >
-                                                                   <option value="Article">
-                                                                   <option value="Bmc">
-                                                                   <option value="Exercism">
-                                                                   <option value="Online Hackathon">
-                                                                   <option value="Mooc Course">
-                                                                   <option value="Dt bootcamp">
-                                                                   <option value="Tie Event">
-                                                                 </datalist>
-                                                                  <input type="file" name="image" class="form-control">
-                                                                  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Extra-curricular Certificate</button>
-                                                                </form>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
+                      </tbody>
+                    </table>
+                    <div class="row" style="margin: 20px">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-header">Upload Proof</div>
+                          <div class="card-body">
+                            <form
+                              action="/taskproof"
+                              method="post"
+                              enctype="multipart/form-data"
+                            >
+                              <label for="taskproof" class="form-check-label"
+                                >Choose the type of proof</label
+                              >
+                              <input
+                                list="taskproof"
+                                name="taskproof"
+                                class="btn btn-primary"
+                                style="margin-bottom: 10px"
+                              />
+                              <datalist id="taskproof">
+                                <option value="Article"></option>
+                                <option value="Bmc"></option>
+                                <option value="Exercism"></option>
+                                <option value="Online Hackathon"></option>
+                                <option value="Mooc Course"></option>
+                                <option value="Dt bootcamp"></option>
+                                <option value="Tie Event"></option>
+                              </datalist>
+
+                              <input
+                                type="file"
+                                name="image"
+                                class="form-control"
+                              />
+                              <button
+                                type="submit"
+                                class="btn btn-primary"
+                                style="margin-top: 10px"
+                              >
+                                Upload Extra-curricular Certificate
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-               </div>
-               
-               
-               <!--**********************************
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--**********************************
             Content body end
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
             Footer start
         ***********************************-->
-               
-               <!--**********************************
+
+      <!--**********************************
             Footer end
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
            Support ticket button start
         ***********************************-->
 
-               <!--**********************************
+      <!--**********************************
            Support ticket button end
         ***********************************-->
-          </div>
-          <!--**********************************
+    </div>
+    <!--**********************************
         Main wrapper end
     ***********************************-->
 
-          <!--**********************************
+    <!--**********************************
         Scripts
     ***********************************-->
-          <!-- Required vendors -->
-          <script src="vendor/global/global.min.js"></script>
-          <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-          <script src="js/custom.min.js"></script>
-          <script src="js/dlabnav-init.js"></script>
-          <script> document.getElementById("career").value = "Select Here";</script>
-          <script> document.getElementById("career").value = "Select Here";</script>
-          <!-- Datatable -->
-          <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-          <script src="js/plugins-init/datatables.init.js"></script>
+    <!-- Required vendors -->
+    <script src="vendor/global/global.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/dlabnav-init.js"></script>
+    <script>
+      document.getElementById("career").value = "Select Here";
+    </script>
+    <script>
+      document.getElementById("career").value = "Select Here";
+    </script>
+    <!-- Datatable -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="js/plugins-init/datatables.init.js"></script>
 
-          <!-- Svganimation scripts -->
-          <script src="vendor/svganimation/vivus.min.js"></script>
-          <script src="vendor/svganimation/svg.animation.js"></script>
-          <script src="js/styleSwitcher.js"></script>
-     </body>
+    <!-- Svganimation scripts -->
+    <script src="vendor/svganimation/vivus.min.js"></script>
+    <script src="vendor/svganimation/svg.animation.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+  </body>
 </html>
