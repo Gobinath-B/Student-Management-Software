@@ -94,6 +94,8 @@ const ui_progressbar = require('./routes/ui-progressbar')
 const ui_tab = require('./routes/ui-tab')
 const ui_typography = require('./routes/ui-typography')
 const widget_basic = require('./routes/widget-basic')
+const image_upload = require('./routes/imageUpload')
+
 
 app.use('/about-courses',about_courses)
 app.use('/about-student',about_student)
@@ -184,6 +186,6 @@ app.use('/ui-progressbar',ui_progressbar)
 app.use('/ui-tab',ui_tab)
 app.use('/ui-typography',ui_typography)
 app.use('/widget-basic', widget_basic)
-
+app.use('/upload', image_upload)
 
 module.exports = app 
