@@ -38,7 +38,7 @@ exports.login = async (req, res, next) =>{
                 return;
             }else{
                 res.setHeader('Set-Cookie',cookie.serialize('staff_id',String(result[0].id)))
-                res.redirect('/')
+                res.redirect('/all-students')
             }
         }
         
@@ -55,6 +55,15 @@ exports.auth = (req, res, next) =>{
     try {
         var cookies = cookie.parse(req?.headers?.cookie || '');
         if(cookies?.student_id || cookies?.staff_id){
+            if(cookies?.staff_id){
+                res.locals = {
+                    isStaff:true
+                }
+            }else{
+                res.locals = {
+                    isStaff:false
+                }
+            }
             next()
         }else{
             res.redirect('/login')
