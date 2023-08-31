@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-
+app.use('/edit-departments',express.static('public'))
 const task = require("./routes/task");
 const about_courses = require("./routes/about-courses");
 const about_student = require("./routes/about-student");
@@ -195,4 +195,8 @@ app.use("/widget-basic", widget_basic);
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
 });
+
+
+
+
 module.exports = app;
