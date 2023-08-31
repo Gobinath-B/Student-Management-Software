@@ -11,21 +11,13 @@ router.get('/',async(req,res)=>{
     const reqdata = req.body;
     const id = 'Swq0AKtoqJTUpwmNPCnV'; //req.header.id;
     
+   const taskData = await db.collection("task").doc(id).get(); 
    const docData = await db.collection("students").doc(id).get();
    var data = docData.data();
    console.log(data);
-//    const article = result.task.article;
-//    const bmc = result.task.bmc;
-//    const start = result.startDate;
-//    const end = result.endDate;
-//    const data = {
-//     article:article,
-//     bmc:bmc,
-//     start:start,
-//     end:end
-//    }
-   
-   res.render("all-holiday",{data:data});
+   var taskd = taskData.data(); 
+   console.log(taskd);
+   res.render("all-holiday",{data:data,taskd:taskd});
     
 })
 
