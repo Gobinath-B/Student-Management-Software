@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 
+app.use(express.static('public'))
+
+app.set('view engine','ejs')
+
 const about_courses = require('./routes/about-courses')
 const about_student = require('./routes/about-student')
 const add_courses = require('./routes/add-courses')
@@ -142,7 +146,7 @@ app.use('/form-pickers',form_pickers)
 app.use('/form-validation-jquery',form_validation_jquery)
 app.use('/form-wizard',form_wizard)
 app.use('/holiday-calendar',holiday_calendar)
-app.use('/index',index)
+app.use('/',index)
 app.use('/map-jqvmap',map_jqvmap)
 app.use('/page-error-400',page_error_400)
 app.use('/page-error-403',page_error_403)
