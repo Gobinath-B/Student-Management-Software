@@ -15,8 +15,8 @@ router.get('/',async(req,res)=>{
    const docData = await db.collection("students").doc(id).get();
    var data = docData.data();
    console.log(data);
-   var taskd = taskData.data(); 
-   console.log(taskd);
+   var taskd =  taskData.data()
+  // console.log(taskd);
    res.render("all-holiday",{data:data,taskd:taskd});
     
 })
