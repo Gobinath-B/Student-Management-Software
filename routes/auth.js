@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.set('view engine', 'ejs'); // Set EJS as the view engine
 
-a
+
 
 app.set('view engine', 'ejs'); // Set EJS as the view engine
 app.use(express.urlencoded({ extended: true }));
