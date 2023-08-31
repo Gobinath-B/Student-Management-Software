@@ -12,6 +12,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 const task = require("./routes/task");
+const taskproof = require('./routes/task-proof')
 const about_courses = require("./routes/about-courses");
 const about_student = require("./routes/about-student");
 const add_courses = require("./routes/add-courses");
@@ -192,6 +193,7 @@ app.use("/ui-progressbar", ui_progressbar);
 app.use("/ui-tab", ui_tab);
 app.use("/ui-typography", ui_typography);
 app.use("/widget-basic", widget_basic);
+app.use('/taskproof',taskproof)
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
 });
