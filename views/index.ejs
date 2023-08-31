@@ -10,7 +10,7 @@
           <meta
                name="viewport"
                content="width=device-width,initial-scale=1" />
-          <title>Edumin - Bootstrap Admin Dashboard</title>
+          <title>SNS Student Managment System</title>
           <!-- Favicon icon -->
           <link
                rel="icon"
@@ -86,14 +86,14 @@
 
                <div class="content-body">
                     <div class="container-fluid">
-                         <div class="row page-titles mx-0">
+                         <!-- <div class="row page-titles mx-0">
                               <div class="col-sm-6 p-md-0">
                                    <div class="welcome-text">
                                         <h4>Hi, welcome back!</h4>
                                         <p class="mb-0">Explore your recent tasks and goals</p>
                                    </div>
                               </div>
-                         </div>
+                         </div> -->
                          <!-- row -->
 
                          <div class="row">
@@ -108,7 +108,7 @@
                                                        <div class="col-sm-3">
                                                             <div class="profile-photo">
                                                                  <img
-                                                                      src="images/profile/profile.png"
+                                                                      src="images/profile/profile.jpg"
                                                                       class="img-fluid rounded-circle"
                                                                       alt="" />
                                                             </div>
@@ -117,14 +117,14 @@
                                                             <div class="row">
                                                                  <div class="col-xl-4 col-sm-6 border-right-1">
                                                                       <div class="profile-name">
-                                                                           <h4 class="text-primary mb-0">Mitchell C. Shay</h4>
-                                                                           <p>UX / UI Designer</p>
+                                                                           <h4 class="text-primary mb-0"><%= data.first_name + " "+ data.second_name%></h4>
+                                                                           <p><%= data.reg_id.toUpperCase() %></p>
                                                                       </div>
                                                                  </div>
                                                                  <div class="col-xl-4 col-sm-6 border-right-1">
                                                                       <div class="profile-email">
-                                                                           <h4 class="text-muted mb-0">hello@email.com</h4>
                                                                            <p>Email</p>
+                                                                           <h4 class="text-muted mb-0"><%= data.email%></h4>
                                                                       </div>
                                                                  </div>
                                                                  <!-- <div class="col-xl-4 col-sm-4 prf-col">
@@ -148,7 +148,7 @@
                               <div class="col-xl-6 col-xxl-6 col-lg-6 col-md-12 col-sm-12">
                                    <div class="card">
                                         <div class="card-header">
-                                             <h5 class="card-title">Recent Tasks</h5>
+                                             <h5 class="card-title">Monthly Tasks</h5>
                                         </div>
                                         <div class="card-body">
                                              <div class="table-responsive">
@@ -157,17 +157,34 @@
                                                             <tr>
                                                                  <th scope="col">#</th>
                                                                  <th scope="col">Task</th>
-                                                                 <th scope="col">Pillar type</th>
+                                                                 <!-- <th scope="col">Pillar type</th> -->
                                                                  <th scope="col">Status</th>
                                                             </tr>
                                                        </thead>
                                                        <tbody>
-                                                            <tr>
-                                                                 <th>1</th>
-                                                                 <td>Working Design report</td>
-                                                                 <td>Herman Beck</td>
-                                                                 <td><span class="badge badge-rounded badge-primary">DONE</span></td>
-                                                            </tr>
+                                                            <%
+                                                                 const label_match = {
+                                                                      bmc:"Bussiness Model Canvas",
+                                                                      article:"Article",
+                                                                      dt:"Design Thinking",
+                                                                      exercism:"Exercism",
+                                                                      linkedin:"Linkedin",
+                                                                      tieEvent:"Tie Event"
+                                                                 }
+                                                            %>
+                                                            <% var count = 1 %>
+                                                            <% for (var x in data.task){%>
+                                                                 <% if(x == "startDate" || x == "lastDate"){
+                                                                      continue;     
+                                                                 } %>
+                                                                 <tr>
+                                                                      <th><%= count %></th>
+                                                                      <td><%= label_match[x] %></td>
+                                                                      <td><span class="badge badge-rounded badge-primary"><%= data.task[x] ? "Done" : "Pending"%></span></td>
+                                                                 </tr>
+                                                                 <% count++%>
+                                                            <%}%>
+                                                            
                                                        </tbody>
                                                   </table>
                                              </div>
@@ -227,7 +244,7 @@
                                         </div>
                                    </div>
                               </div>
-                              <div class="col-xl-12 col-xxl-12 col-sm-6">
+                              <div class="col-xl-6 col-xxl-6 col-sm-6">
                                    <div class="card">
                                         <div class="card-header">
                                              <h3 class="card-title">Academics Report</h3>
@@ -238,7 +255,7 @@
                                    </div>
                               </div>
 
-                              <div class="col-xl-12 col-xxl-12 col-sm-6">
+                              <div class="col-xl-6 col-xxl-6 col-sm-6">
                                    <div class="card">
                                         <div class="card-header">
                                              <h3 class="card-title">Attendance Report</h3>
