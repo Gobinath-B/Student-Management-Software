@@ -3,10 +3,12 @@ const express = require('express')
 const router = express.Router()
 const fb = require('../config/fb');
 const db = fb.firestore();
+var cookie = require("cookie");
 
 router.get('/',async(req,res)=>{
     const reqdata = req.body;
-    const id = 'Swq0AKtoqJTUpwmNPCnV';
+    var cookies = cookie.parse(req?.headers?.cookie || "");
+    const id = cookies.student_id;
    const result = await db.collection("students").doc(id).get();
    const data = result.data();
    const f1 = data.fee.fe1;
