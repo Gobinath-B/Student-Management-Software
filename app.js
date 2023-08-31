@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express()
 
-app.use(express.static('public'))
+const {auth} = require('./middleware/auth')
 
+app.use(auth)
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+app.use(express.static('public'))
 app.set('view engine','ejs')
 
 const about_courses = require('./routes/about-courses')
@@ -94,6 +98,9 @@ const ui_progressbar = require('./routes/ui-progressbar')
 const ui_tab = require('./routes/ui-tab')
 const ui_typography = require('./routes/ui-typography')
 const widget_basic = require('./routes/widget-basic')
+const login = require('./routes/login')
+
+
 
 app.use('/about-courses',about_courses)
 app.use('/about-student',about_student)
@@ -184,4 +191,7 @@ app.use('/ui-progressbar',ui_progressbar)
 app.use('/ui-tab',ui_tab)
 app.use('/ui-typography',ui_typography)
 app.use('/widget-basic',widget_basic)
+
+app.use('/login',login)
+
 module.exports = app 
