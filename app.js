@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-
+const db = require('./config/fb').firestore()
 const { auth } = require("./middleware/auth");
 
 app.use(express.json());
@@ -196,6 +196,11 @@ app.use("/ui-typography", ui_typography);
 app.use("/widget-basic", widget_basic);
 app.use('/taskproof',taskproof)
 
+app.get('/delete-courses/:id',async (req, res) => {
+     const id = req.params.id;
+     await db.collection('subjects').doc(id).delete()
+     res.redirect('/all-courses')
+})
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
 });
