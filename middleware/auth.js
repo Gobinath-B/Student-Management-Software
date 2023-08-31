@@ -54,6 +54,7 @@ exports.auth = (req, res, next) =>{
         if(cookies?.student_id || cookies?.staff_id){
             next()
         }else{
+            res.redirect('/login')
         }
     } catch (error) {
         res.redirect('/login')
