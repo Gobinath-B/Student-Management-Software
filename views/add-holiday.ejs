@@ -99,20 +99,18 @@
                          </div>
 
                        
-                                   
                          <div class="container">
                               <div class="row">
                                 <div class="col-md-6">
                                   <div class="card">
                                     <div class="card-header">
-                                      Upload Image
+                                      Upload Co-curricular Certificate
                                     </div>
                                     <div class="card-body">
                                       <form action="/upload" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                          <input type="file" name="image" class="form-control">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                        <input type="hidden" name="certificateType" value="coCurricular">
+                                        <input type="file" name="image" class="form-control">
+                                        <button type="submit" class="btn btn-primary">Upload Co-curricular Certificate</button>
                                       </form>
                                     </div>
                                   </div>
@@ -120,20 +118,13 @@
                                 <div class="col-md-6">
                                   <div class="card">
                                     <div class="card-header">
-                                      Submit Certificate
+                                      Upload Extra-curricular Certificate
                                     </div>
                                     <div class="card-body">
-                                      <form action="/certificate" method="post">
-                                        <div class="form-group">
-                                          <select name="certificateType" class="form-control">
-                                            <option value="coCurricular">Co-curricular</option>
-                                            <option value="extraCurricular">Extra-curricular</option>
-                                          </select>
-                                        </div>
-                                        <div class="form-group">
-                                          <input type="text" name="eventName" class="form-control" placeholder="Event Name">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit Certificate</button>
+                                      <form action="/upload" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="certificateType" value="extraCurricular">
+                                        <input type="file" name="image" class="form-control">
+                                        <button type="submit" class="btn btn-primary">Upload Extra-curricular Certificate</button>
                                       </form>
                                     </div>
                                   </div>
