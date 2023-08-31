@@ -82,29 +82,29 @@
                          <div class="row page-titles mx-0">
                               <div class="col-sm-6 p-md-0">
                                    <div class="welcome-text">
-                                        <h4>All Holiday</h4>
+                                        <h4>September Month Task</h4>
                                    </div>
                               </div>
-                              <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                              <!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                                    <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index">Home</a></li>
                                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Holiday</a></li>
                                         <li class="breadcrumb-item active"><a href="javascript:void(0);">All Holiday</a></li>
                                    </ol>
-                              </div>
+                              </div> -->
                          </div>
 
                          <div class="row">
                               <div class="col-lg-12">
                                    <div class="card">
-                                        <div class="card-header">
+                                        <!-- <div class="card-header">
                                              <h4 class="card-title">Holiday List</h4>
                                              <a
                                                   href="add-holiday"
                                                   class="btn btn-primary"
                                                   >+ Add New</a
                                              >
-                                        </div>
+                                        </div> -->
                                         <div class="card-body">
                                              <div class="table-responsive">
                                                   <table
@@ -113,156 +113,122 @@
                                                        <thead>
                                                             <tr>
                                                                  <th>#</th>
-                                                                 <th>Title</th>
-                                                                 <th>Type</th>
-                                                                 <th>Start date</th>
-                                                                 <th>End Date</th>
-                                                                 <th>Details</th>
+                                                                 <th>Task</th>
+                                                                 <th>Pillar</th>
+                                                                 <th>Assigned date</th>
+                                                                 <th>Due Date</th>
+                                                                 <th>Status</th>
                                                                  <th>Action</th>
                                                             </tr>
                                                        </thead>
                                                        <tbody>
                                                             <tr>
                                                                  <td>01</td>
-                                                                 <td>Festival</td>
-                                                                 <td>National Holiday</td>
-                                                                 <td>31 July 1998</td>
-                                                                 <td>12 August 2020</td>
-                                                                 <td>Lorem Ipsum is simply dummy</td>
+                                                                 <td>Article</td>
+                                                                 <td>CFC</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.article?"Finished":"Pending"%></td>
+                                                                 
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
                                                             <tr>
                                                                  <td>02</td>
-                                                                 <td>Republic Day</td>
-                                                                 <td>Office Holiday</td>
-                                                                 <td>23 August 2005</td>
-                                                                 <td>25 May 2019</td>
-                                                                 <td>When an unknown printer took</td>
+                                                                 <td>BMC</td>
+                                                                 <td>CFC</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.bmc?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
                                                             <tr>
                                                                  <td>03</td>
-                                                                 <td>Festival</td>
-                                                                 <td>National Holiday</td>
-                                                                 <td>15 March 2001</td>
-                                                                 <td>28 May 2020</td>
-                                                                 <td>Aldus Page Maker including versions</td>
+                                                                 <td>Exercism Coding Challenge</td>
+                                                                 <td>CLT</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.exercism?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
                                                             <tr>
                                                                  <td>04</td>
-                                                                 <td>Republic Day</td>
-                                                                 <td>Office Holiday</td>
-                                                                 <td>31 July 1998</td>
-                                                                 <td>12 August 2020</td>
-                                                                 <td>Lorem Ipsum is simply dummy</td>
+                                                                 <td>Online Hackathon</td>
+                                                                 <td>SCD</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.exercism?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
                                                             <tr>
                                                                  <td>05</td>
-                                                                 <td>Festival</td>
-                                                                 <td>National Holiday</td>
-                                                                 <td>15 March 2001</td>
-                                                                 <td>28 May 2020</td>
-                                                                 <td>When an unknown printer took</td>
+                                                                 <td>Mooc Course</td>
+                                                                 <td>CLT</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.article?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
                                                             <tr>
                                                                  <td>06</td>
-                                                                 <td>Republic Day</td>
-                                                                 <td>Office Holiday</td>
-                                                                 <td>31 July 1998</td>
-                                                                 <td>12 August 2020</td>
-                                                                 <td>Aldus Page Maker including versions</td>
+                                                                 <td>Dt bootcamp</td>
+                                                                 <td>SRI</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.dt?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
                                                             <tr>
                                                                  <td>07</td>
-                                                                 <td>Festival</td>
-                                                                 <td>Public Holiday</td>
-                                                                 <td>23 August 2005</td>
-                                                                 <td>25 May 2019</td>
-                                                                 <td>Lorem Ipsum is simply dummy</td>
+                                                                 <td>Tie Event</td>
+                                                                 <td>IIPC</td>
+                                                                 <td><%= data.task.startDate %></td>
+                                                                 <td><%= data.task.lastDate %></td>
+                                                                 <td><%= data.task.tieEvent?"Finished":"Pending"%></td>
                                                                  <td>
                                                                       <a
                                                                            href="javascript:void(0);"
                                                                            class="btn btn-sm btn-primary"
-                                                                           ><i class="la la-pencil"></i
-                                                                      ></a>
-                                                                      <a
-                                                                           href="javascript:void(0);"
-                                                                           class="btn btn-sm btn-danger"
-                                                                           ><i class="la la-trash-o"></i
-                                                                      ></a>
+                                                                           >Remind Later</a>
+                                                                      
                                                                  </td>
                                                             </tr>
-                                                            <tr>
+                                                            <!-- <tr>
                                                                  <td>08</td>
                                                                  <td>Memorial Day</td>
                                                                  <td>National Holiday</td>
@@ -361,8 +327,8 @@
                                                                            ><i class="la la-trash-o"></i
                                                                       ></a>
                                                                  </td>
-                                                            </tr>
-                                                            <tr>
+                                                            </tr> -->
+                                                            <!-- <tr>
                                                                  <td>13</td>
                                                                  <td>Festival</td>
                                                                  <td>National Holiday</td>
@@ -421,7 +387,7 @@
                                                                            ><i class="la la-trash-o"></i
                                                                       ></a>
                                                                  </td>
-                                                            </tr>
+                                                            </tr> -->
                                                        </tbody>
                                                   </table>
                                              </div>
@@ -438,19 +404,7 @@
                <!--**********************************
             Footer start
         ***********************************-->
-               <div class="footer">
-                    <div class="copyright">
-                         <p>
-                              Copyright © Designed &amp; Developed by
-                              <a
-                                   href="../index.htm"
-                                   target="_blank"
-                                   >DexignLab</a
-                              >
-                              2020
-                         </p>
-                    </div>
-               </div>
+               
                <!--**********************************
             Footer end
         ***********************************-->
