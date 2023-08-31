@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/ui-modal')
+router.get('/',(req,res)=>{
+    res.render('ui-modal')
+})
 module.exports = router

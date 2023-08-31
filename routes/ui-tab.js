@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/ui-tab')
+router.get('/',(req,res)=>{
+    res.render('ui-tab')
+})
 module.exports = router

@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/page-error-503')
+router.get('/',(req,res)=>{
+    res.render('page-error-503')
+})
 module.exports = router

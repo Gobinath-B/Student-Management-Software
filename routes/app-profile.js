@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/app-profile')
+router.get('/',(req,res)=>{
+    res.render('app-profile')
+})
 module.exports = router

@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/form-validation-jquery')
+router.get('/',(req,res)=>{
+    res.render('form-validation-jquery')
+})
 module.exports = router

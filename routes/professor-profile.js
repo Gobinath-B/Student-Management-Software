@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/professor-profile')
+router.get('/',(req,res)=>{
+    res.render('professor-profile')
+})
 module.exports = router

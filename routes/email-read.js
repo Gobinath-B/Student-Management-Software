@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/email-read')
+router.get('/',(req,res)=>{
+    res.render('email-read')
+})
 module.exports = router

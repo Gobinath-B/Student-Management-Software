@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/holiday-calendar')
+router.get('/',(req,res)=>{
+    res.render('holiday-calendar')
+})
 module.exports = router

@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/widget-basic')
+router.get('/',(req,res)=>{
+    res.render('widget-basic')
+})
 module.exports = router

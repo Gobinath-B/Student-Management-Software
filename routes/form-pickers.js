@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/form-pickers')
+router.get('/',(req,res)=>{
+    res.render('form-pickers')
+})
 module.exports = router

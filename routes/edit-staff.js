@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/edit-staff')
+router.get('/',(req,res)=>{
+    res.render('edit-staff')
+})
 module.exports = router

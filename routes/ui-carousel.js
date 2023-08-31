@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/ui-carousel')
+router.get('/',(req,res)=>{
+    res.render('ui-carousel')
+})
 module.exports = router

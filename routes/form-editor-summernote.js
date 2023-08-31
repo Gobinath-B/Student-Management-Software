@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/form-editor-summernote')
+router.get('/',(req,res)=>{
+    res.render('form-editor-summernote')
+})
 module.exports = router

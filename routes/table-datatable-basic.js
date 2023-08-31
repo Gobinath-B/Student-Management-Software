@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/table-datatable-basic')
+router.get('/',(req,res)=>{
+    res.render('table-datatable-basic')
+})
 module.exports = router

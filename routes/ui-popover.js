@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/ui-popover')
+router.get('/',(req,res)=>{
+    res.render('ui-popover')
+})
 module.exports = router

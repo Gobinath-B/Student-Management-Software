@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/ui-list-group')
+router.get('/',(req,res)=>{
+    res.render('ui-list-group')
+})
 module.exports = router

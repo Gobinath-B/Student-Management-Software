@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/page-login')
+router.get('/',(req,res)=>{
+    res.render('page-login')
+})
 module.exports = router

@@ -1,5 +1,6 @@
-
 const express = require('express')
 const router = express.Router()
-router.get('/ui-accordion')
+router.get('/',(req,res)=>{
+    res.render('ui-accordion')
+})
 module.exports = router

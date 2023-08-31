@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/app-calender')
+router.get('/',(req,res)=>{
+    res.render('app-calender')
+})
 module.exports = router

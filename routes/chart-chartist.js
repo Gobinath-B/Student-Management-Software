@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/chart-chartist')
+router.get('/',(req,res)=>{
+    res.render('chart-chartist')
+})
 module.exports = router

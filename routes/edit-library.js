@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/edit-library')
+router.get('/',(req,res)=>{
+    res.render('edit-library')
+})
 module.exports = router

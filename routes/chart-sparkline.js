@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/chart-sparkline')
+router.get('/',(req,res)=>{
+    res.render('chart-sparkline')
+})
 module.exports = router

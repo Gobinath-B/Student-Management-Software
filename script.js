@@ -1,12 +1,18 @@
-const fs = require('fs')
+const fs = require('fs');
 
 const middle_route = (endpoint)=>`
-app.use('/${endpoint}',${endpoint.replaceAll('-','_')})`
+const express = require('express')
+const router = express.Router()
+router.get('/',(req,res)=>{
+    res.render('${endpoint}')
+})
+module.exports = router
+`
 
 const files = fs.readdirSync(__dirname+"/views")
 files.forEach(file=>{
     if(file.includes('.ejs')){
         let oldFileName = file.split('.')[0];
-        fs.appendFileSync("temp.js",middle_route(oldFileName))
+        fs.writeFileSync(__dirname+"/routes/"+oldFileName+".js",middle_route(oldFileName))
     }
 })

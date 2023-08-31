@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/page-error-500')
+router.get('/',(req,res)=>{
+    res.render('page-error-500')
+})
 module.exports = router

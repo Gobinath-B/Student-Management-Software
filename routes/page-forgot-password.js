@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/page-forgot-password')
+router.get('/',(req,res)=>{
+    res.render('page-forgot-password')
+})
 module.exports = router

@@ -1,5 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-router.get('/event-management')
+router.get('/',(req,res)=>{
+    res.render('event-management')
+})
 module.exports = router
