@@ -118,36 +118,32 @@
                                                                  <th>Assigned date</th>
                                                                  <th>Due Date</th>
                                                                  <th>Status</th>
-                                                       
                                                             </tr>
                                                        </thead>
                                                        <tbody>
-                                                            <%let count = 1%>
-                                                            <%for(let x in data){%>
-                                                                 <tr>
-                                                                      <td><%=count%></td>
-                                                                      <td><%= data[x].task_name %></td>
-                                                                      <td><%= data[x].pillar %></td>
-                                                                      <td><%= data[x].startDate %></td>
-                                                                      <td><%= data[x].endDate %></td>
-                                                                      <td>
-                                                                           <a
-                                                                                href="javascript:void(0);"
-                                                                                class="btn btn-sm btn-primary"
-                                                                                >Edit</a>
-                                                                                <a
-                                                                                href="javascript:void(0);"
-                                                                                class="btn btn-sm btn-primary"
-                                                                                >Delete</a>
-                                                                           
-                                                                      </td>
-                                                                 </tr>
-                                                                 <%count++%>
-                                                            <%}%>
-                                                            
+                                                            <%let count = 1%> <%for(let x in data){%>
+                                                            <tr>
+                                                                 <td><%=count%></td>
+                                                                 <td><%= data[x].task_name %></td>
+                                                                 <td><%= data[x].pillar %></td>
+                                                                 <td><%= data[x].startDate %></td>
+                                                                 <td><%= data[x].endDate %></td>
+                                                                 <td>
+                                                                      <a
+                                                                           href="javascript:void(0);"
+                                                                           class="btn btn-sm btn-primary"
+                                                                           >Edit</a
+                                                                      >
+                                                                      <a
+                                                                           href="javascript:void(0);"
+                                                                           class="btn btn-sm btn-primary"
+                                                                           >Delete</a
+                                                                      >
+                                                                 </td>
+                                                            </tr>
+                                                            <%count++%> <%}%>
                                                        </tbody>
                                                   </table>
-                                               
                                              </div>
                                         </div>
                                    </div>
@@ -155,8 +151,7 @@
                          </div>
                     </div>
                </div>
-               
-               
+
                <!--**********************************
             Content body end
         ***********************************-->
@@ -164,7 +159,7 @@
                <!--**********************************
             Footer start
         ***********************************-->
-               
+
                <!--**********************************
             Footer end
         ***********************************-->
@@ -189,8 +184,12 @@
           <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
           <script src="js/custom.min.js"></script>
           <script src="js/dlabnav-init.js"></script>
-          <script> document.getElementById("career").value = "Select Here";</script>
-          <script> document.getElementById("career").value = "Select Here";</script>
+          <script>
+               document.getElementById("career").value = "Select Here";
+          </script>
+          <script>
+               document.getElementById("career").value = "Select Here";
+          </script>
           <!-- Datatable -->
           <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
           <script src="js/plugins-init/datatables.init.js"></script>

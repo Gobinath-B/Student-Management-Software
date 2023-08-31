@@ -14,6 +14,7 @@ app.use('/edit-courses', express.static('public'))
 app.use(auth);
 const task = require("./routes/task");
 const taskproof = require('./routes/task-proof')
+const careerhelp= require('./routes/carrier-help')
 const about_courses = require("./routes/about-courses");
 const about_student = require("./routes/about-student");
 const add_courses = require("./routes/add-courses");
