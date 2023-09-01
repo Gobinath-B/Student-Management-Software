@@ -103,6 +103,7 @@ const ui_progressbar = require("./routes/ui-progressbar");
 const ui_tab = require("./routes/ui-tab");
 const ui_typography = require("./routes/ui-typography");
 const widget_basic = require("./routes/widget-basic");
+const cookies = require("cookie");
 
 app.use("/about-courses", about_courses);
 app.use("/about-student", about_student);
@@ -201,6 +202,31 @@ app.get('/delete-courses/:id',async (req, res) => {
      await db.collection('subjects').doc(id).delete()
      res.redirect('/all-courses')
 })
+
+app.get('/my-task',async (req, res)=>{
+     var cookie = cookies.parse(req?.headers?.cookie || "");
+     if(cookie.student_id){
+          const student_response = await db.collection('students').doc(cookie.student_id).get()
+          const student_info = student_response.data().task
+          console.log(student_info);
+          res.render('my-task',{data:student_info})
+     }else{
+          res.send("Staff don't have a tasks")
+     }
+})
+
+app.get('/my-task-upload',async (req, res)=>{
+     var cookie = cookies.parse(req?.headers?.cookie || "");
+     if(cookie.student_id){
+          const student_response = await db.collection('students').doc(cookie.student_id).get()
+          const student_info = student_response.data().task
+          console.log(student_info);
+          res.render('my-task-upload',{data:student_info})
+     }else{
+          res.send("Staff don't have a tasks")
+     }
+})
+
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
 });

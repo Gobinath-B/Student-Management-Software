@@ -130,17 +130,7 @@
                                                                       <td><%= data[x].pillar %></td>
                                                                       <td><%= data[x].startDate %></td>
                                                                       <td><%= data[x].endDate %></td>
-                                                                      <td>
-                                                                           <a
-                                                                                href="javascript:void(0);"
-                                                                                class="btn btn-sm btn-primary"
-                                                                                >Edit</a>
-                                                                                <a
-                                                                                href="javascript:void(0);"
-                                                                                class="btn btn-sm btn-primary"
-                                                                                >Delete</a>
-                                                                           
-                                                                      </td>
+                                                                      <td><%= data[x].status ? "Done" : "Pending"%></td>
                                                                  </tr>
                                                                  <%count++%>
                                                             <%}%>
