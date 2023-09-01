@@ -148,16 +148,13 @@
                                                               <div class="card-body">
                                                                 <form action="/taskproof" method="post" enctype="multipart/form-data">
                                                                  <label for="taskproof" class="form-check-label">Choose the type of proof</label>
-                                                                 <input list="taskproof" name="taskproof" class="btn btn-primary" style="margin-bottom: 10px;">
-                                                                 <datalist id="taskproof" >
-                                                                   <option value="Article">
-                                                                   <option value="Bmc">
-                                                                   <option value="Exercism">
-                                                                   <option value="Online Hackathon">
-                                                                   <option value="Mooc Course">
-                                                                   <option value="Dt bootcamp">
-                                                                   <option value="Tie Event">
-                                                                 </datalist>
+                                                                 <div class="my-2">
+                                                                      <select name="taskproof" id="taskproof" >
+                                                                           <%for(x in data){%>
+                                                                              <option value="<%=x%>"><%= data[x].task_name%></option>
+                                                                           <%}%>
+                                                                           </select>
+                                                                 </div>
                                                                   <input type="file" name="image" class="form-control">
                                                                   <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Upload Extra-curricular Certificate</button>
                                                                 </form>
