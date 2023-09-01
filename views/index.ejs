@@ -127,12 +127,12 @@
                                                                            <h4 class="text-muted mb-0"><%= data.email%></h4>
                                                                       </div>
                                                                  </div>
-                                                                 <!-- <div class="col-xl-4 col-sm-4 prf-col">
+                                                                 <div class="col-xl-4 col-sm-4 prf-col">
                                                     <div class="profile-call">
-                                                        <h4 class="text-muted">(+1) 321-837-1030</h4>
-                                                        <p>Phone No.</p>
+                                                        <h4 class="text-muted"><%= data.points %></h4>
+                                                        <p>Reward Points</p>
                                                     </div>
-                                                </div> -->
+                                                </div> 
                                                             </div>
                                                        </div>
                                                   </div>
@@ -162,10 +162,11 @@
                                                             </tr>
                                                        </thead>
                                                        <tbody>
-                                                            <% const label_match = { bmc:"Bussiness Model Canvas", article:"Article", dt:"Design Thinking", exercism:"Exercism", linkedin:"Linkedin", tieEvent:"Tie Event" } %> <% var count = 1 %> <% for (var x in data.task){%> <% if(x == "startDate" || x == "lastDate"){ continue; } %>
+                                                            <% var count = 1 %> <% for (var x in data.task){%>
+                                                                  <% if(x == "startDate" || x == "lastDate"){ continue; } %>
                                                             <tr>
-                                                                 <th><%= count %></th>
-                                                                 <td><%= label_match[x] %></td>
+                                                                 <th><%= count%></th>
+                                                                 <td><%=  data.task[x].task_name %></td>
                                                                  <td><span class="badge badge-rounded badge-primary"><%= data.task[x] ? "Done" : "Pending"%></span></td>
                                                             </tr>
                                                             <% count++%> <%}%>

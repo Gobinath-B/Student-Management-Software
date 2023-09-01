@@ -2,18 +2,19 @@
 
 const express = require("express");
 const app = express();
-const db = require('./config/fb').firestore()
+const db = require("./config/fb").firestore();
 const { auth } = require("./middleware/auth");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.use('/edit-departments', express.static('public'))
-app.use('/edit-courses', express.static('public'))
+app.use("/edit-departments", express.static("public"));
+app.use("/edit-courses", express.static("public"));
 app.use(auth);
 const task = require("./routes/task");
-const taskproof = require('./routes/task-proof')
+const taskproof = require("./routes/task-proof");
+const careerhelp = require("./routes/carrier-help");
 const about_courses = require("./routes/about-courses");
 const about_student = require("./routes/about-student");
 const add_courses = require("./routes/add-courses");
@@ -104,6 +105,7 @@ const ui_tab = require("./routes/ui-tab");
 const ui_typography = require("./routes/ui-typography");
 const widget_basic = require("./routes/widget-basic");
 const cookies = require("cookie");
+const imageUpload = require("./routes/imageUpload");
 
 app.use("/about-courses", about_courses);
 app.use("/about-student", about_student);
@@ -195,37 +197,42 @@ app.use("/ui-progressbar", ui_progressbar);
 app.use("/ui-tab", ui_tab);
 app.use("/ui-typography", ui_typography);
 app.use("/widget-basic", widget_basic);
-app.use('/taskproof',taskproof)
-
-app.get('/delete-courses/:id',async (req, res) => {
+app.use("/taskproof", taskproof);
+app.use("/imageupload", imageUpload);
+app.get("/delete-courses/:id", async (req, res) => {
      const id = req.params.id;
-     await db.collection('subjects').doc(id).delete()
-     res.redirect('/all-courses')
-})
+     await db.collection("subjects").doc(id).delete();
+     res.redirect("/all-courses");
+});
 
-app.get('/my-task',async (req, res)=>{
-     var cookie = cookies.parse(req?.headers?.cookie || "");
-     if(cookie.student_id){
-          const student_response = await db.collection('students').doc(cookie.student_id).get()
-          const student_info = student_response.data().task
-          console.log(student_info);
-          res.render('my-task',{data:student_info})
-     }else{
-          res.send("Staff don't have a tasks")
-     }
-})
+app.use("/careerhelp", careerhelp);
+app.get("/page-logout", (req, res) => {
+     res.redirect("/page-login");
+});
 
-app.get('/my-task-upload',async (req, res)=>{
+app.get("/my-task", async (req, res) => {
      var cookie = cookies.parse(req?.headers?.cookie || "");
-     if(cookie.student_id){
-          const student_response = await db.collection('students').doc(cookie.student_id).get()
-          const student_info = student_response.data().task
+     if (cookie.student_id) {
+          const student_response = await db.collection("students").doc(cookie.student_id).get();
+          const student_info = student_response.data().task;
           console.log(student_info);
-          res.render('my-task-upload',{data:student_info})
-     }else{
-          res.send("Staff don't have a tasks")
+          res.render("my-task", { data: student_info });
+     } else {
+          res.send("Staff don't have a tasks");
      }
-})
+});
+
+app.get("/my-task-upload", async (req, res) => {
+     var cookie = cookies.parse(req?.headers?.cookie || "");
+     if (cookie.student_id) {
+          const student_response = await db.collection("students").doc(cookie.student_id).get();
+          const student_info = student_response.data().task;
+          console.log(student_info);
+          res.render("my-task-upload", { data: student_info });
+     } else {
+          res.send("Staff don't have a tasks");
+     }
+});
 
 app.get("/page-logout", (req, res) => {
      res.redirect("/page-login");
