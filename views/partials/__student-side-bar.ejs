@@ -134,12 +134,16 @@
                          <span class="nav-text">Monthly Task</span>
                     </a>
                     <ul aria-expanded="false">
-                         <li><a href="all-holiday"> <%if(isStaff){%> All Tasks  <%}else{%> My Tasks <%}%></a></li>
+                         <%if(isStaff){%>
+                              <li><a href="all-holiday"> <%if(isStaff){%> All Tasks  <%}else{%> My Tasks <%}%></a></li>
+                              <%}else{%>
+                              <li><a href="my-task"> <%if(isStaff){%> All Tasks  <%}else{%> My Tasks <%}%></a></li>
+                              <%}%>
                          <%if(isStaff){%>
                               <li><a href="add-task">Add Task</a></li>
                               <li><a href="edit-holiday">Edit Task</a></li> 
                               <%}else{%>
-                                   <li><a href="all-holiday">Upload Cetificate</a></li>
+                                   <li><a href="/my-task-upload">Upload Cetificate</a></li>
                               <%}%>
                          <!-- <li><a href="holiday-calendar"> Task</a></li>-->
                     </ul>
