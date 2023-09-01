@@ -1,7 +1,8 @@
+/** @format */
 
-const express = require('express')
-const router = express.Router()
-router.get('/',(req,res)=>{
-    res.render('uc-toastr')
-})
-module.exports = router
+const express = require("express");
+const router = express.Router();
+router.get("/", (req, res) => {
+     res.render("uc-toastr");
+});
+module.exports = router;
