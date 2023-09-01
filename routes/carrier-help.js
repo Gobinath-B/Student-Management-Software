@@ -14,9 +14,10 @@ router.post('/', async (req, res) => {
     try {
         const userInput = req.body.career;
         const strin = "give me a carrer path to become a " + userInput + " . I don't want any other answer adn no other extra word, just give me teh career path. Also give every point in between a <h3></h3> tag, make the sub headings enclosed by a h2 tag like <h2></h2>. make the paragraph more detailed"
-        const careerRecommendation = await generateCareerRecommendation(strin);
+        let careerRecommendation
+       careerRecommendation = await generateCareerRecommendation(strin);
         console.log(careerRecommendation)
-        res.render('edit-library', { careerRecommendation });
+        res.render('edit-library', { careerRecommendation }); 
     }
     catch (error) {
         console.error(error);
