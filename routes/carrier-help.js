@@ -36,7 +36,7 @@ async function generateCareerRecommendation(prompt) {
             authorization: 'Bearer VjzKnm3mbZ4NQ55PVhBFLgpLActkEwiEl6LsYFKq'
         },
         data: {
-            max_tokens: 500,  // Adjust as needed
+            max_tokens: 4000,  // Adjust as needed
             truncate: 'END',
             return_likelihoods: 'NONE',
             prompt: prompt
