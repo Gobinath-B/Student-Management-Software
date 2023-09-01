@@ -162,10 +162,11 @@
                                                             </tr>
                                                        </thead>
                                                        <tbody>
-                                                            <% const label_match = { bmc:"Bussiness Model Canvas", article:"Article", dt:"Design Thinking", exercism:"Exercism", linkedin:"Linkedin", tieEvent:"Tie Event" } %> <% var count = 1 %> <% for (var x in data.task){%> <% if(x == "startDate" || x == "lastDate"){ continue; } %>
+                                                            <% var count = 1 %> <% for (var x in data.task){%>
+                                                                  <% if(x == "startDate" || x == "lastDate"){ continue; } %>
                                                             <tr>
-                                                                 <th><%= count %></th>
-                                                                 <td><%= label_match[x] %></td>
+                                                                 <th><%= count%></th>
+                                                                 <td><%=  data.task[x].task_name %></td>
                                                                  <td><span class="badge badge-rounded badge-primary"><%= data.task[x] ? "Done" : "Pending"%></span></td>
                                                             </tr>
                                                             <% count++%> <%}%>
