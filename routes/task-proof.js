@@ -49,12 +49,12 @@ router.post('/', upload.single('image'), async (req, res) => {
     });
     const students = (await studentDocRef.get()).data()
     await studentDocRef.update({
+        points: parseInt(students?.points) + 20,
         [`task.${proofType}`]:{...students.task[proofType],status:true}
-      });  
-      await studentDocRef.update({
-        ['points']: studentDocRef.points + 20
-      });  
-
+    });  
+    console.log(students.points + "this is supposed to be the student point")
+    console.log(typeof(students))
+    
     res.status(200).send(' information stored successfully.');
   } catch (error) {
     res.status(500).send('Error: ' + error.message + " this error");
