@@ -5,3 +5,4 @@ router.get('/',(req,res)=>{
     res.render('fees-collection')
 })
 module.exports = router
+
