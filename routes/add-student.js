@@ -16,8 +16,6 @@ router.post("/", async (req, res) => {
      const body = req.body;
      const response = await db.firestore().collection("students").add(body);
      console.log("RESPONSE", response);
-     res.render("add-student", {
-          message: "Student added successfully",
-     });
+    res.redirect('/all-students')
 });
 module.exports = router;
