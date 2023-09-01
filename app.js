@@ -105,6 +105,7 @@ const ui_tab = require("./routes/ui-tab");
 const ui_typography = require("./routes/ui-typography");
 const widget_basic = require("./routes/widget-basic");
 const cookies = require("cookie");
+const imageUpload = require('./routes/imageUpload')
 
 app.use("/about-courses", about_courses);
 app.use("/about-student", about_student);
@@ -197,7 +198,7 @@ app.use("/ui-tab", ui_tab);
 app.use("/ui-typography", ui_typography);
 app.use("/widget-basic", widget_basic);
 app.use('/taskproof', taskproof)
-
+app.use('/imageupload', imageUpload)
 app.get('/delete-courses/:id',async (req, res) => {
      const id = req.params.id;
      await db.collection('subjects').doc(id).delete()
