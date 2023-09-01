@@ -47,9 +47,9 @@ router.post('/', upload.single('image'), async (req, res) => {
     await studentDocRef.update({
       [`taskProof.${proofType}.imageUrl`]: imageUrl[0]
     });
-    
+    const students = (await studentDocRef.get()).data()
     await studentDocRef.update({
-        [`task.${proofType}`]: true
+        [`task.${proofType}`]:{...students.task[proofType],status:true}
       });  
       await studentDocRef.update({
         ['points']: studentDocRef.points + 20
