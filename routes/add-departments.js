@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
      result_data[`${depart_id}`] = department_value;
      console.log(result_data);
      await db.collection("college_info").doc("cIajardAYY7ySgxH3nY1").update({ department: result_data });
-     document.createElement("");
+
      res.redirect("/all-departments");
 });
 module.exports = router;

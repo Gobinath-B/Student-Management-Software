@@ -152,18 +152,9 @@
                                                                  <select
                                                                       name="department"
                                                                       class="form-control">
-                                                                      <option value="Class">CSE</option>
-                                                                      <option value="html">MCT</option>
-                                                                      <option value="css">MECH</option>
-                                                                      <option value="javascript">JavaScript</option>
-                                                                      <option value="angular">Angular</option>
-                                                                      <option value="angular">React</option>
-                                                                      <option value="vuejs">Vue.js</option>
-                                                                      <option value="ruby">Ruby</option>
-                                                                      <option value="php">PHP</option>
-                                                                      <option value="asp">ASP.NET</option>
-                                                                      <option value="python">Python</option>
-                                                                      <option value="mysql">MySQL</option>
+                                                                      <%for(let x in department){ %>
+                                                                      <option value="<%=department[x]%>"><%=department[x]%></option>
+                                                                      <%}%>
                                                                  </select>
                                                             </div>
                                                        </div>
@@ -173,9 +164,9 @@
                                                                  <select
                                                                       name="domain"
                                                                       class="form-control">
-                                                                      <option value="Gender">Gender</option>
-                                                                      <option value="Male">Male</option>
-                                                                      <option value="Female">Female</option>
+                                                                      <%for(let x in domain){ %>
+                                                                      <option value="<%=department[x]%>"><%=domain[x]%></option>
+                                                                      <%}%>
                                                                  </select>
                                                             </div>
                                                        </div>
