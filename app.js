@@ -205,6 +205,11 @@ app.get("/delete-courses/:id", async (req, res) => {
      res.redirect("/all-courses");
 });
 
+app.use("/careerhelp", careerhelp);
+app.get("/page-logout", (req, res) => {
+     res.redirect("/page-login");
+});
+
 app.get("/my-task", async (req, res) => {
      var cookie = cookies.parse(req?.headers?.cookie || "");
      if (cookie.student_id) {
